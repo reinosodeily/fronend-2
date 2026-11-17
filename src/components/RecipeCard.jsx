@@ -1,7 +1,12 @@
-/// src/components/RecipeCard.jsx
+// src/components/RecipeCard.jsx
 import styles from './RecipeCard.module.css';
 
-export default function RecipeCard({ receta, onToggleFavorito, onVerDetalle }) {
+export default function RecipeCard({
+  receta,
+  onToggleFavorito,
+  onVerDetalle,
+  onEditarReceta
+}) {
   return (
     <article className={styles.card}>
       <div className={styles.cardTop}>
@@ -32,13 +37,24 @@ export default function RecipeCard({ receta, onToggleFavorito, onVerDetalle }) {
         <div className={styles.cardFooter}>
           <span className={styles.metaTime}>⏱️ {receta.tiempo}</span>
 
-          <button
-            type="button"
-            onClick={() => onVerDetalle(receta)}
-            className={styles.detailBtn}
-          >
-            Ver receta
-          </button>
+          <div className={styles.actionGroup}>
+            <button
+              type="button"
+              onClick={() => onEditarReceta(receta)}
+              className={styles.editBtn}
+              aria-label={`Editar ${receta.titulo}`}
+            >
+              ✏️ Editar
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onVerDetalle(receta)}
+              className={styles.detailBtn}
+            >
+              Ver receta
+            </button>
+          </div>
         </div>
       </div>
     </article>

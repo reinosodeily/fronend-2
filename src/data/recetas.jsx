@@ -51,5 +51,29 @@ export const recetasData = [
       "1 astilla de canela"
     ],
     preparacion: "Hierve la leche con el azúcar, la canela y el bicarbonato a fuego medio-bajo. Revuelve constantemente con cuchara de madera hasta que tome color caramelo y espese."
+  },
+  {
+    id: 4,
+    titulo: "Calentado Antioqueño",
+    categoria: "Desayunos",
+    tiempo: "20 min",
+    porciones: "2 porciones",
+    calorias: "490 kcal",
+    proteina: "21g prot",
+    descripcion: "Mezcla tradicional de fríjoles rojos y arroz sofritos en hogao casero, acompañado de plátano maduro, huevo y arepa.",
+    imagen: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
+    favorito: false,
+    ingredientes: [
+      "2 tazas de fríjoles rojos cocidos con su caldo",
+      "1 taza y media de arroz blanco del día anterior",
+      "4 cucharadas de hogao de tomate y cebolla",
+      "2 huevos criollos y tajadas de plátano maduro",
+      "Cilantro fresco picado y sal al gusto"
+    ],
+    pasos: [
+      "Sofríe el hogao en una sartén amplia a fuego medio durante 2 minutos para activar su aroma.",
+      "Agrega los fríjoles con un poco de su tinta y el arroz blanco, integrando con movimientos envolventes.",
+      "Deja que la preparación tome consistencia jugosa durante 8 minutos y sirve acompañado de huevo frito y maduro."
+    ]
   }
 ];

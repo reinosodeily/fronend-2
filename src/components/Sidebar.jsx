@@ -17,19 +17,21 @@ export default function Sidebar({
     setOpenSection(openSection === section ? null : section);
   };
 
-  const seleccionarCategoria = (cat) => {
+  const seleccionarCategoria = (categoria) => {
     setSoloFavoritos(false);
-    setCategoriaActiva(cat);
+    setCategoriaActiva(categoria);
     onClose();
   };
 
   return (
     <>
+      {/* Fondo oscuro difuminado que se superpone al contenido */}
       <div
         className={`${styles.backdrop} ${isOpen ? styles.backdropVisible : ''}`}
         onClick={onClose}
       />
 
+      {/* Barra lateral desplegable */}
       <aside className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
         <div className={styles.sidebarHeader}>
           <div className={styles.brandGroup}>
@@ -44,14 +46,14 @@ export default function Sidebar({
             type="button"
             onClick={onClose}
             className={styles.closeBtn}
-            aria-label="Cerrar menú"
+            aria-label="Cerrar barra lateral"
           >
             ✕
           </button>
         </div>
 
         <div className={styles.menuList}>
-          {/* Acordeón 1: Recetario y Contenido */}
+          {/* Acordeón 1: Pantallas del Módulo Recetario y Contenido */}
           <div className={styles.menuSection}>
             <button
               type="button"
@@ -59,7 +61,9 @@ export default function Sidebar({
               className={styles.accordionHeader}
             >
               <span>📖 Recetario y Contenido</span>
-              <span className={styles.chevron}>{openSection === 'recetario' ? '▾' : '▸'}</span>
+              <span className={styles.chevron}>
+                {openSection === 'recetario' ? '▾' : '▸'}
+              </span>
             </button>
 
             {openSection === 'recetario' && (
@@ -68,9 +72,12 @@ export default function Sidebar({
                   type="button"
                   onClick={() => {
                     setSoloFavoritos(false);
+                    setCategoriaActiva('Todas');
                     onClose();
                   }}
-                  className={`${styles.subMenuItem} ${!soloFavoritos ? styles.activeSubItem : ''}`}
+                  className={`${styles.subMenuItem} ${
+                    !soloFavoritos && categoriaActiva === 'Todas' ? styles.activeSubItem : ''
+                  }`}
                 >
                   <span>Galería de Recetas</span>
                 </button>
@@ -81,10 +88,28 @@ export default function Sidebar({
                     setSoloFavoritos(true);
                     onClose();
                   }}
-                  className={`${styles.subMenuItem} ${soloFavoritos ? styles.activeSubItem : ''}`}
+                  className={`${styles.subMenuItem} ${
+                    soloFavoritos ? styles.activeSubItem : ''
+                  }`}
                 >
                   <span>Mi Colección (Favoritos)</span>
                   <span className={styles.sideBadge}>{totalFavoritos}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className={styles.subMenuItem}
+                >
+                  <span>Editor de Recetas</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className={styles.subMenuItem}
+                >
+                  <span>Modo Cocina Paso a Paso</span>
                 </button>
               </div>
             )}
@@ -98,7 +123,9 @@ export default function Sidebar({
               className={styles.accordionHeader}
             >
               <span>🏷️ Filtro por Categoría</span>
-              <span className={styles.chevron}>{openSection === 'categorias' ? '▾' : '▸'}</span>
+              <span className={styles.chevron}>
+                {openSection === 'categorias' ? '▾' : '▸'}
+              </span>
             </button>
 
             {openSection === 'categorias' && (
@@ -127,7 +154,9 @@ export default function Sidebar({
               className={styles.accordionHeader}
             >
               <span>🧭 Ecosistema Sazón</span>
-              <span className={styles.chevron}>{openSection === 'ecosistema' ? '▾' : '▸'}</span>
+              <span className={styles.chevron}>
+                {openSection === 'ecosistema' ? '▾' : '▸'}
+              </span>
             </button>
 
             {openSection === 'ecosistema' && (
@@ -137,6 +166,9 @@ export default function Sidebar({
                 </button>
                 <button type="button" onClick={onClose} className={styles.subMenuItem}>
                   <span>Planificador Semanal</span>
+                </button>
+                <button type="button" onClick={onClose} className={styles.subMenuItem}>
+                  <span>Lista de Compras</span>
                 </button>
               </div>
             )}

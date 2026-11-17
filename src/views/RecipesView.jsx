@@ -9,7 +9,8 @@ export default function RecipesView({
   setRecetas,
   categoriaActiva = 'Todas',
   setCategoriaActiva,
-  soloFavoritos = false
+  soloFavoritos = false,
+  onEditarReceta
 }) {
   const [terminoBusqueda, setTerminoBusqueda] = useState('');
   const [recetaSeleccionada, setRecetaSeleccionada] = useState(null);
@@ -86,6 +87,7 @@ export default function RecipesView({
               receta={receta}
               onToggleFavorito={toggleFavorito}
               onVerDetalle={setRecetaSeleccionada}
+              onEditarReceta={onEditarReceta}
             />
           ))}
         </div>

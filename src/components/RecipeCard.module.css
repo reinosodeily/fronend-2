@@ -132,3 +132,26 @@
 .detailBtn:hover {
   background-color: #2F7027;
 }
+/* Agrega al final de src/components/RecipeCard.module.css */
+.actionGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editBtn {
+  background-color: #F4F4E8;
+  color: #643B22;
+  border: 1.5px solid #643B22;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editBtn:hover {
+  background-color: #643B22;
+  color: #F4F4E8;
+}
