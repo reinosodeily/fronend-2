@@ -1,0 +1,106 @@
+/* src/views/RecipesView.module.css */
+.viewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.heroBanner {
+  background-color: #FFFFFF;
+  border: 1.5px solid #E2E0D0;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.heroTag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #3D8E33;
+  letter-spacing: 0.06em;
+}
+
+.heroTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #643B22;
+  margin: 4px 0;
+}
+
+.heroSubtitle {
+  font-size: 0.92rem;
+  color: #7D5338;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 240px;
+  max-width: 420px;
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: 1.5px solid #D5D2BD;
+  background-color: #F4F4E8;
+  color: #643B22;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: #3D8E33;
+  background-color: #FFFFFF;
+}
+
+.categoryPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pillBtn {
+  background-color: #F4F4E8;
+  color: #643B22;
+  border: 1px solid #D5D2BD;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pillBtn:hover {
+  border-color: #3D8E33;
+}
+
+.activePill {
+  background-color: #3D8E33;
+  color: #FFFFFF;
+  border-color: #3D8E33;
+}
+
+.recipeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.emptyBox {
+  background-color: #FFFFFF;
+  border: 1.5px dashed #D5D2BD;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  color: #643B22;
+  font-weight: 600;
+}

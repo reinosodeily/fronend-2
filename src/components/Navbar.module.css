@@ -1,0 +1,138 @@
+/* src/components/Navbar.module.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 28px;
+  background-color: #FFFFFF;
+  border-bottom: 2px solid #E2E0D0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menuButton {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1.5px solid #D5D2BD;
+  background-color: #F4F4E8;
+  color: #643B22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menuButton:hover {
+  background-color: #3D8E33;
+  color: #FFFFFF;
+  border-color: #3D8E33;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #3D8E33;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.logoTitle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #3D8E33;
+  line-height: 1.1;
+}
+
+.logoSubtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #643B22;
+  letter-spacing: 0.06em;
+  display: block;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navBtn {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #643B22;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navBtn:hover {
+  background-color: #F4F4E8;
+}
+
+.activeNav {
+  background-color: #643B22;
+  color: #F4F4E8;
+}
+
+.favBadgeBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #F4F4E8;
+  border: 1.5px solid #3D8E33;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #643B22;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.activeFavBadge {
+  background-color: #3D8E33;
+  color: #FFFFFF;
+}
+
+.counter {
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: #3D8E33;
+  color: #FFFFFF;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.activeFavBadge .counter {
+  background-color: #FFFFFF;
+  color: #3D8E33;
+}
