@@ -1,11 +1,15 @@
 // src/components/RecipeCard.jsx
 import styles from './RecipeCard.module.css';
 
-export default function RecipeCard({ receta, onToggleFavorito }) {
+export default function RecipeCard({ receta, onToggleFavorito, onVerDetalle }) {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        {/* Aquí puedes mostrar la imagen estática o un placeholder */}
+        <img 
+          src={receta.imagen} 
+          alt={receta.titulo} 
+          className={styles.image} 
+        />
         <div className={styles.categoryBadge}>{receta.categoria}</div>
       </div>
       
@@ -16,13 +20,21 @@ export default function RecipeCard({ receta, onToggleFavorito }) {
         <div className={styles.footer}>
           <span className={styles.time}>⏱️ {receta.tiempo}</span>
           
-          {/* Botón interactivo que actualiza el estado local del padre */}
-          <button 
-            onClick={() => onToggleFavorito(receta.id)}
-            className={`${styles.favButton} ${receta.favorito ? styles.active : ''}`}
-          >
-            {receta.favorito ? '❤️ Favorito' : '🤍 Agregar'}
-          </button>
+          <div style={{ display: 'flex', gap: '8px' }}>
+            <button 
+              onClick={() => onVerDetalle(receta)}
+              className={styles.detailButton}
+            >
+              Ver receta
+            </button>
+
+            <button 
+              onClick={() => onToggleFavorito(receta.id)}
+              className={`${styles.favButton} ${receta.favorito ? styles.active : ''}`}
+            >
+              {receta.favorito ? '❤️' : '🤍'}
+            </button>
+          </div>
         </div>
       </div>
     </div>

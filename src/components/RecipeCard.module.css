@@ -1,4 +1,4 @@
-
+/* src/components/RecipeCard.module.css */
 .card {
   background-color: #ffffff;
   border-radius: 12px;
@@ -6,8 +6,8 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
@@ -16,27 +16,34 @@
 }
 
 .imageContainer {
-  height: 140px;
+  width: 100%;
+  height: 180px;
   background-color: #f3f4f6;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #9ca3af;
-  font-size: 0.9rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .categoryBadge {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: #16a34a; 
-  color: white;
+  background-color: #16a34a;
+  color: #ffffff;
   padding: 4px 10px;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 20px;
   text-transform: uppercase;
+  z-index: 2;
 }
 
 .cardContent {
@@ -44,20 +51,21 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  background-color: #ffffff;
 }
 
 .title {
   font-size: 1.15rem;
   font-weight: 700;
   color: #1f2937;
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
 }
 
 .description {
   font-size: 0.9rem;
   color: #4b5563;
   line-height: 1.4;
-  margin-bottom: 16px;
+  margin: 0 0 16px 0;
   flex-grow: 1;
 }
 
@@ -67,23 +75,45 @@
   align-items: center;
   border-top: 1px solid #f3f4f6;
   padding-top: 12px;
+  gap: 8px;
 }
 
 .time {
   font-size: 0.85rem;
   color: #6b7280;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.favButton {
-  background-color: #f3f4f6;
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detailButton {
+  background-color: #16a34a;
+  color: #ffffff;
   border: none;
   padding: 6px 12px;
   border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.detailButton:hover {
+  background-color: #15803d;
+}
+
+.favButton {
+  background-color: #f3f4f6;
   color: #374151;
+  border: 1px solid #e5e7eb;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
   transition: background-color 0.2s;
 }
 
@@ -91,8 +121,8 @@
   background-color: #e5e7eb;
 }
 
-.favButton.active {
+.active {
   background-color: #fee2e2;
   color: #dc2626;
+  border-color: #fecaca;
 }
-
