@@ -1,49 +1,92 @@
-
+/* src/views/RecipesView.module.css */
 .viewContainer {
   display: flex;
   flex-direction: column;
   gap: 28px;
 }
 
-.header {
+.heroBanner {
+  background-color: #FFFFFF;
+  border: 1.5px solid #E2E0D0;
+  border-radius: 20px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  background-color: #f0fdf4;
-  padding: 24px;
-  border-radius: 16px;
-  border: 1px solid #dcfce7;
+  gap: 20px;
 }
 
-.title {
-  font-size: 1.8rem;
+.heroTag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #3D8E33;
+  letter-spacing: 0.06em;
+}
+
+.heroTitle {
+  font-size: 1.75rem;
   font-weight: 800;
-  color: #14532d;
-  margin: 0;
+  color: #643B22;
+  margin: 4px 0;
 }
 
-.subtitle {
-  font-size: 0.95rem;
-  color: #15803d;
-  margin: 0;
+.heroSubtitle {
+  font-size: 0.92rem;
+  color: #7D5338;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .searchInput {
-  width: 100%;
-  max-width: 480px;
-  padding: 12px 16px;
-  font-size: 0.95rem;
-  border: 2px solid #bbf7d0;
-  border-radius: 10px;
-  background-color: #ffffff;
-  color: #1f2937;
+  flex: 1;
+  min-width: 240px;
+  max-width: 420px;
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: 1.5px solid #D5D2BD;
+  background-color: #F4F4E8;
+  color: #643B22;
+  font-size: 0.9rem;
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .searchInput:focus {
-  border-color: #16a34a;
-  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+  border-color: #3D8E33;
+  background-color: #FFFFFF;
+}
+
+.categoryPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pillBtn {
+  background-color: #F4F4E8;
+  color: #643B22;
+  border: 1px solid #D5D2BD;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pillBtn:hover {
+  border-color: #3D8E33;
+}
+
+.activePill {
+  background-color: #3D8E33;
+  color: #FFFFFF;
+  border-color: #3D8E33;
 }
 
 .recipeGrid {
@@ -52,47 +95,12 @@
   gap: 24px;
 }
 
-.emptyState {
-  text-align: center;
+.emptyBox {
+  background-color: #FFFFFF;
+  border: 1.5px dashed #D5D2BD;
+  border-radius: 16px;
   padding: 40px;
-  background-color: #f9fafb;
-  border-radius: 12px;
-  color: #6b7280;
-  font-weight: 500;
-}
-
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.categoryGroup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.categoryBtn {
-  background-color: #ffffff;
-  color: #15803d;
-  border: 1px solid #bbf7d0;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.85rem;
+  text-align: center;
+  color: #643B22;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.categoryBtn:hover {
-  background-color: #dcfce7;
-}
-
-.activeCategory {
-  background-color: #16a34a;
-  color: #ffffff;
-  border-color: #16a34a;
 }

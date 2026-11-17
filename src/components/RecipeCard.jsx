@@ -1,42 +1,46 @@
-// src/components/RecipeCard.jsx
+/// src/components/RecipeCard.jsx
 import styles from './RecipeCard.module.css';
 
 export default function RecipeCard({ receta, onToggleFavorito, onVerDetalle }) {
   return (
-    <div className={styles.card}>
-      <div className={styles.imageContainer}>
-        <img 
-          src={receta.imagen} 
-          alt={receta.titulo} 
-          className={styles.image} 
-        />
-        <div className={styles.categoryBadge}>{receta.categoria}</div>
+    <article className={styles.card}>
+      <div className={styles.cardTop}>
+        <span className={styles.categoryBadge}>{receta.categoria}</span>
+
+        <button
+          type="button"
+          onClick={() => onToggleFavorito(receta.id)}
+          className={`${styles.favBtn} ${receta.favorito ? styles.favActive : ''}`}
+          aria-label="Marcar como favorito"
+        >
+          {receta.favorito ? '❤️' : '🤍'}
+        </button>
       </div>
-      
-      <div className={styles.cardContent}>
+
+      <div className={styles.circleWrapper}>
+        <img
+          src={receta.imagen}
+          alt={receta.titulo}
+          className={styles.circleImage}
+        />
+      </div>
+
+      <div className={styles.cardBody}>
         <h3 className={styles.title}>{receta.titulo}</h3>
         <p className={styles.description}>{receta.descripcion}</p>
-        
-        <div className={styles.footer}>
-          <span className={styles.time}>⏱️ {receta.tiempo}</span>
-          
-          <div style={{ display: 'flex', gap: '8px' }}>
-            <button 
-              onClick={() => onVerDetalle(receta)}
-              className={styles.detailButton}
-            >
-              Ver receta
-            </button>
 
-            <button 
-              onClick={() => onToggleFavorito(receta.id)}
-              className={`${styles.favButton} ${receta.favorito ? styles.active : ''}`}
-            >
-              {receta.favorito ? '❤️' : '🤍'}
-            </button>
-          </div>
+        <div className={styles.cardFooter}>
+          <span className={styles.metaTime}>⏱️ {receta.tiempo}</span>
+
+          <button
+            type="button"
+            onClick={() => onVerDetalle(receta)}
+            className={styles.detailBtn}
+          >
+            Ver receta
+          </button>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

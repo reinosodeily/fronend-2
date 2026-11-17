@@ -5,22 +5,16 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <div className={styles.brand}>
+        <div>
           <span className={styles.logo}>🍲 Sazón</span>
           <p className={styles.tagline}>
-            Recetario interactivo con el sabor de nuestra tradición.
+            Ecosistema gastronómico · Módulo de Recetario y Contenido
           </p>
         </div>
 
-        <div className={styles.links}>
-          <a href="#home" className={styles.link}>Inicio</a>
-          <a href="#recetas" className={styles.link}>Recetas</a>
-          <a href="#favoritos" className={styles.link}>Favoritos</a>
-        </div>
-      </div>
-
-      <div className={styles.bottomBar}>
-        <p>© {new Date().getFullYear()} Sazón. Todos los derechos reservados.</p>
+        <span className={styles.monoCopy}>
+          © {new Date().getFullYear()} PROYECTO SAZÓN
+        </span>
       </div>
     </footer>
   );

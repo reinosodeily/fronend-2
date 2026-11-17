@@ -1,39 +1,63 @@
-
 // src/App.jsx
 import { useState, useEffect } from 'react';
-import { obtenerRecetasMock } from './services/recetasService';
+import { recetasData } from './data/recetas';
 import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 import RecipesView from './views/RecipesView';
 import Footer from './components/Footer';
+import styles from './App.module.css';
 
 export default function App() {
-  // 1. El estado ahora inicia vacío esperando la respuesta de la API
   const [recetas, setRecetas] = useState([]);
-  
-  // 2. Estado para controlar la pantalla de carga
   const [cargando, setCargando] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [categoriaActiva, setCategoriaActiva] = useState('Todas');
+  const [soloFavoritos, setSoloFavoritos] = useState(false);
 
-  // 3. useEffect ejecuta la petición una sola vez cuando carga la página
+  // Simulación de Mock API con promesa al cargar la aplicación
   useEffect(() => {
-    obtenerRecetasMock().then((datosRecibidos) => {
-      setRecetas(datosRecibidos);
+    const timer = setTimeout(() => {
+      setRecetas(recetasData);
       setCargando(false);
-    });
+    }, 500);
+
+    return () => clearTimeout(timer);
   }, []);
 
-  const totalFavoritos = recetas.filter(receta => receta.favorito).length;
+  const totalFavoritos = recetas.filter((receta) => receta.favorito).length;
 
   return (
-    <div className="app-container">
-      <Navbar totalFavoritos={totalFavoritos} />
+    <div className={styles.appLayout}>
+      <Navbar
+        totalFavoritos={totalFavoritos}
+        onOpenSidebar={() => setIsSidebarOpen(true)}
+        soloFavoritos={soloFavoritos}
+        setSoloFavoritos={setSoloFavoritos}
+      />
 
-      <main style={{ padding: '24px', maxWidth: '1200px', margin: '0 auto', minHeight: '75vh' }}>
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        categoriaActiva={categoriaActiva}
+        setCategoriaActiva={setCategoriaActiva}
+        soloFavoritos={soloFavoritos}
+        setSoloFavoritos={setSoloFavoritos}
+        totalFavoritos={totalFavoritos}
+      />
+
+      <main className={styles.mainContent}>
         {cargando ? (
-          <p style={{ textAlign: 'center', fontSize: '1.2rem', color: '#16a34a', marginTop: '48px', fontWeight: '600' }}>
-            🍲 Cargando recetas de Sazón...
-          </p>
+          <div className={styles.loaderBox}>
+            🍲 Cargando recetario Sazón...
+          </div>
         ) : (
-          <RecipesView recetas={recetas} setRecetas={setRecetas} />
+          <RecipesView
+            recetas={recetas}
+            setRecetas={setRecetas}
+            categoriaActiva={categoriaActiva}
+            setCategoriaActiva={setCategoriaActiva}
+            soloFavoritos={soloFavoritos}
+          />
         )}
       </main>
 

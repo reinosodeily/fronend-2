@@ -1,128 +1,134 @@
 /* src/components/RecipeCard.module.css */
 .card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  border: 1.5px solid #E2E0D0;
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  border: 1px solid #e5e7eb;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(100, 59, 34, 0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 24px rgba(100, 59, 34, 0.12);
+  border-color: #3D8E33;
 }
 
-.imageContainer {
+.cardTop {
   width: 100%;
-  height: 180px;
-  background-color: #f3f4f6;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
 .categoryBadge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #16a34a;
-  color: #ffffff;
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: #F4F4E8;
+  color: #3D8E33;
+  border: 1px solid #3D8E33;
   padding: 4px 10px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  border-radius: 20px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
-  z-index: 2;
 }
 
-.cardContent {
-  padding: 16px;
+.favBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #E2E0D0;
+  background-color: #F4F4E8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: transform 0.15s ease;
+}
+
+.favBtn:hover {
+  transform: scale(1.08);
+}
+
+.favActive {
+  background-color: #FEE2E2;
+  border-color: #EF4444;
+}
+
+.circleWrapper {
+  width: 156px;
+  height: 156px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #F4F4E8;
+  outline: 2px solid #3D8E33;
+  margin: 8px 0 16px 0;
+  flex-shrink: 0;
+}
+
+.circleImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardBody {
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  background-color: #ffffff;
 }
 
 .title {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #1f2937;
-  margin: 0 0 8px 0;
+  color: #643B22;
+  margin-bottom: 8px;
 }
 
 .description {
-  font-size: 0.9rem;
-  color: #4b5563;
-  line-height: 1.4;
-  margin: 0 0 16px 0;
+  font-size: 0.88rem;
+  color: #7D5338;
+  line-height: 1.45;
+  margin-bottom: 18px;
   flex-grow: 1;
 }
 
-.footer {
+.cardFooter {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #f3f4f6;
   padding-top: 12px;
-  gap: 8px;
+  border-top: 1px dashed #E2E0D0;
 }
 
-.time {
-  font-size: 0.85rem;
-  color: #6b7280;
+.metaTime {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
   font-weight: 600;
+  color: #643B22;
 }
 
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.detailButton {
-  background-color: #16a34a;
-  color: #ffffff;
+.detailBtn {
+  background-color: #3D8E33;
+  color: #FFFFFF;
   border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
-.detailButton:hover {
-  background-color: #15803d;
-}
-
-.favButton {
-  background-color: #f3f4f6;
-  color: #374151;
-  border: 1px solid #e5e7eb;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.favButton:hover {
-  background-color: #e5e7eb;
-}
-
-.active {
-  background-color: #fee2e2;
-  color: #dc2626;
-  border-color: #fecaca;
+.detailBtn:hover {
+  background-color: #2F7027;
 }
